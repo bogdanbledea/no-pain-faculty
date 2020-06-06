@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/bogdanbledea/no-pain-faculty/issues"
   },
-  "homepage": "https://github.com/bogdanbledea/no-pain-faculty#readme"
+  "homepage": "https://github.com/bogdanbledea/no-pain-faculty#readme",
+  "devDependencies": {
+    "husky": "^4.2.5"
+  }
 }
