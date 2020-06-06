@@ -1,0 +1,19 @@
+{
+  "name": "no-pain-faculty",
+  "version": "1.0.0",
+  "description": "An app that helps faculties to deliver courses, grades and news to the students, painless, in one place",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bogdanbledea/no-pain-faculty.git"
+  },
+  "author": "Bogdan Bledea",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bogdanbledea/no-pain-faculty/issues"
+  },
+  "homepage": "https://github.com/bogdanbledea/no-pain-faculty#readme"
+}
