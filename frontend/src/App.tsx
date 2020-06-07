@@ -1,10 +1,14 @@
-import React from 'react'
-import Router from './Router/Router'
+import React from 'react';
+import Router from './Router/Router';
+import { ThemeProvider } from 'styled-components';
+import { theme } from './commons/theme/theme';
 
-function App () {
+function App() {
   return (
-    <Router />
-  )
+    <ThemeProvider theme={theme}>
+      <Router />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;

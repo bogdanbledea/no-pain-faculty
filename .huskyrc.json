@@ -1,5 +1,5 @@
 {
-    "hooks": {
-      "pre-commit": "npm --prefix frontend run test:all"
-    }
+  "hooks": {
+    "pre-commit": "npm --prefix frontend run checksForCommit"
   }
+}
