@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Title, Events, Event, EventType, Subject, Date, Action, EventHead } from 'pages/Homepage/components/UpcomingEvents/UpcomingEvents.styled';
-import Button from 'commons/components/Button/Button';
+import { Container, Title, Events, Event, EventType, Subject, Date, Action, EventHead } from './UpcomingEvents.styled';
+import Button from '../../../../commons/components/Button/Button';
 
 const UpcomingEvents = () => {
   return (
