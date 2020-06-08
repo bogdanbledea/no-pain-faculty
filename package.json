@@ -4,7 +4,7 @@
   "description": "An app that helps faculties to deliver courses, grades and news to the students, painless, in one place",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm --prefix frontend run test:all"
   },
   "repository": {
     "type": "git",
