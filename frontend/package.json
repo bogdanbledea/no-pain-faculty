@@ -28,8 +28,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "test:all": "set CI=true && jest --watchAll --coverage",
-    "coveralls": "jest --coverage --watchAll && cat ./coverage/lcov.info | coveralls",
+    "test:all": "set CI=true && jest --coverage",
+    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "checksForCommit": "lint-staged && set CI=true && jest --coverage",
     "eject": "react-scripts eject"
   },
