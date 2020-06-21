@@ -6,12 +6,13 @@ export type ButtonProps = SpaceProps & {
   children: any;
   onClick?: () => void;
   buttonType?: 'primary' | 'secondary' | 'success' | 'error' | 'warning' | 'info' | undefined;
+  type?: "button" | "submit" | "reset" | undefined;
 }
 
 const Button = (props:ButtonProps) => {
-  const { children } = props;
+  const { children, type } = props;
   return (
-    <BaseButton {...props}>
+    <BaseButton type={type} {...props}>
       {children}
     </BaseButton>
   );

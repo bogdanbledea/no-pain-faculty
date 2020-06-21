@@ -1,7 +1,13 @@
 import React from 'react';
 import { HeaderContainer, Logo, Title, Subtitle, Menu } from './Header.styled';
+import {
+  Link
+} from "react-router-dom";
+import authService from 'services/auth.service';
 
 const Header = () => {
+  const [currentUser] = React.useState(authService.getCurrentUser());
+  const isLoggedIn = currentUser && currentUser.accessToken;
   return (
     <HeaderContainer>
       <Logo>
@@ -10,12 +16,13 @@ const Header = () => {
       </Logo>
       <Menu>
         <ul>
-          <li>Home</li>
-          <li>Courses</li>
-          <li>Grades</li>
-          <li>News</li>
-          <li>Login</li>
-          <li>Account</li>
+          <li><Link to="/">Home</Link></li>
+          {isLoggedIn && <li><Link to="/courses">Courses</Link></li>}
+          {isLoggedIn && <li><Link to="grades">Grades</Link></li>}
+          {isLoggedIn && <li><Link to="/news">News</Link></li>}
+          {!isLoggedIn && <li><Link to="/login">Login</Link></li>}
+          {!isLoggedIn && <li><Link to="/register">Register</Link></li>}
+          {isLoggedIn && <li><Link to="/profile">Account</Link></li>}
         </ul>
       </Menu>
     </HeaderContainer>

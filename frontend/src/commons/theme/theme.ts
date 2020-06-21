@@ -10,8 +10,11 @@ export const theme = {
       backgroundColor: '#ffffff',
       color: '#000000',
       height: '50px',
-      padding: '0 2rem',
-      logoTitle: 'No Pain Faculty'
+      padding: '1rem 2rem',
+      logoTitle: 'No Pain Faculty',
+      border:{
+        bottom: '#eeeeee'
+      }
     },
     upcomingEvents:{
       padding: '2rem 2rem'
