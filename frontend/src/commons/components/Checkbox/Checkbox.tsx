@@ -12,7 +12,7 @@ const Checkbox = (props:CheckboxProps) => {
   const { name, label, inputRef } = props;
   return (
     <LabelContainer>{label}
-      <CheckboxBase name={name} type="checkbox" ref={inputRef} onChange={(e:any) => setChecked(e.target.checked)}/>
+      <CheckboxBase name={name} data-testid="checkbox" type="checkbox" ref={inputRef} onChange={(e:any) => setChecked(e.target.checked)}/>
       <Checkmark isChecked={checked} />
     </LabelContainer>
   

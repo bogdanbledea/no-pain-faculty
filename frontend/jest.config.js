@@ -6,7 +6,7 @@ module.exports = {
     "<rootDir>/src/setupTests.tsx"
   ],
   collectCoverageFrom: [
-    "src/*.{tsx, ts, js, jsx}",
+    "**/*.{tsx, ts, js, jsx}",
     "!**/node_modules/**",
     "!**/vendor/**"
   ],
