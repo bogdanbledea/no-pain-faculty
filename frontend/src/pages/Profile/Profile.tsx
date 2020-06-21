@@ -1,6 +1,6 @@
 import React from 'react';
-import authService from 'services/auth.service';
-import Button from 'commons/components/Button/Button';
+import authService from '../../services/auth.service';
+import Button from '../../commons/components/Button/Button';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import { Container } from './Profile.styled';

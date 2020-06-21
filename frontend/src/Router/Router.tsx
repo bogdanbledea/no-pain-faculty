@@ -7,14 +7,14 @@ import {
   Redirect
 } from 'react-router-dom'
 import Homepage from '../pages/Homepage/Homepage'
-import Login from 'pages/Login/Login'
-import Header from 'pages/Homepage/components/Header/Header';
-import Profile from 'pages/Profile/Profile';
-import Courses from 'pages/Courses/Courses';
-import authService from 'services/auth.service';
-import Register from 'pages/Register/Register';
-import Grades from 'pages/Grades/Grades';
-import News from 'pages/News/News';
+import Login from '../pages/Login/Login'
+import Header from '../pages/Homepage/components/Header/Header';
+import Profile from '../pages/Profile/Profile';
+import Courses from '../pages/Courses/Courses';
+import authService from '../services/auth.service';
+import Register from '../pages/Register/Register';
+import Grades from '../pages/Grades/Grades';
+import News from '../pages/News/News';
 
 const Router = () => {
   return (

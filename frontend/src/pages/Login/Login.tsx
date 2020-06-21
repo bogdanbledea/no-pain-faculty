@@ -1,10 +1,10 @@
 import React from 'react';
-import TextInput from 'commons/components/TextInput/TextInput';
-import Button from 'commons/components/Button/Button';
+import TextInput from '../../commons/components/TextInput/TextInput';
+import Button from '../../commons/components/Button/Button';
 import { Container } from './Login.styled';
 import { useForm } from 'react-hook-form';
 import { Redirect, Link } from 'react-router-dom';
-import authService from 'services/auth.service';
+import authService from '../../services/auth.service';
 import { useHistory } from 'react-router-dom';
 
 const Login = () => {

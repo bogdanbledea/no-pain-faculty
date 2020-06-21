@@ -3,7 +3,7 @@ import { HeaderContainer, Logo, Title, Subtitle, Menu } from './Header.styled';
 import {
   Link
 } from "react-router-dom";
-import authService from 'services/auth.service';
+import authService from '../../../../services/auth.service';
 
 const Header = () => {
   const [currentUser] = React.useState(authService.getCurrentUser());
