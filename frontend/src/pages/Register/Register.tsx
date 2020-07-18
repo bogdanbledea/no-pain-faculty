@@ -11,7 +11,8 @@ import Checkbox from '../../commons/components/Checkbox/Checkbox';
 
 const Register = () => {
   const [currentUser] = React.useState(authService.getCurrentUser());
-  const {handleSubmit, register } = useForm();
+  const {handleSubmit, register, errors } = useForm();
+  console.log(errors);
   const history = useHistory()
 
   const onSubmit = (data:any) => {
@@ -27,11 +28,13 @@ const Register = () => {
       {currentUser && currentUser.accessToken && <Redirect to="/profile" />}
       <h3>Register</h3>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <TextInput inputRef={register} type="text" name="username" placeholder="username..." />
-        <TextInput inputRef={register} type="text" name="email" placeholder="email..." />
-        <TextInput inputRef={register} type="password" name="password" placeholder="password..." />
+        <TextInput inputRef={register({required: 'Username is required'})} error={errors.username} message={errors.username && errors.username.message} type="text" name="username" placeholder="Username..." />
+        <TextInput inputRef={register({required: 'Email is required'})} type="email" error={errors.email} message={errors.email && errors.email.message} name="email" placeholder="Email..." />
+        <TextInput inputRef={register({required: true})} type="password" name="password" placeholder="Password..." />
+        <TextInput inputRef={register({required: true})} type="password" name="retypePassword" placeholder="Type the password again..." />
         <p>Already have an account? <Link to="/login">Login here</Link></p>
-          <Checkbox name="acceptTerms" inputRef={register} label="I accept the terms and conditions of using this app" />
+          <Checkbox name="acceptTerms" inputRef={register({required: true})} label="I accept the terms and conditions of using this app" />
+          {errors.acceptTerms && <div>you must accept terms and conditions</div>}
         <Button type="submit" buttonType="info">Register</Button>
       </form>
     </Container>
