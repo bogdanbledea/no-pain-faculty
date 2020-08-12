@@ -13,7 +13,7 @@ export const BaseButton = styled.button<ButtonProps & SpaceProps>`
   font-weight:100;
   outline:none;
   font-size:16px;
-  padding:10px 15px;
+  padding:5px 15px;
   border-radius:5px;
   ${props => props.buttonType === 'success' && 'background-color: #28a745' };
   ${props => props.buttonType === 'info' && 'background-color:#03A9F4'};

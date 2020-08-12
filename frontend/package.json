@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/react-hooks": "^3.1.5",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "@types/jwt-decode": "^2.2.1",
@@ -12,7 +13,10 @@
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.0",
     "@types/styled-system": "^5.1.9",
+    "apollo-boost": "^0.4.9",
     "axios": "^0.19.2",
+    "graphql": "^15.3.0",
+    "graphql-tag": "^2.10.4",
     "jwt-decode": "^2.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -31,7 +35,8 @@
     "test:all": "set CI=true && jest --coverage",
     "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
     "checksForCommit": "lint-staged && set CI=true && jest --coverage",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "gen": "graphql-codegen --config codegen.yml"
   },
   "jest": {
     "transform": {
@@ -60,7 +65,12 @@
     ]
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "1.17.0",
+    "@graphql-codegen/typescript": "^1.17.0",
+    "@graphql-codegen/typescript-operations": "^1.17.0",
+    "@graphql-codegen/typescript-react-apollo": "^1.17.0",
     "@testing-library/jest-dom": "^4.2.4",
+    "@types/graphql": "^14.5.0",
     "@types/jest": "^24.9.0",
     "@typescript-eslint/eslint-plugin": "^3.1.0",
     "@typescript-eslint/parser": "^3.1.0",

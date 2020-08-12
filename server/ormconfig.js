@@ -13,13 +13,13 @@ module.exports = {
   },
   "logging": false,
   "entities": [
-    "src/entity/**/*.ts"
+    "src/entity/**/*"
  ],
  "migrations": [
-    "src/migration/**/*.ts"
+    "src/migration/**/*"
  ],
  "subscribers": [
-    "src/subscriber/**/*.ts"
+    "src/subscriber/**/*"
  ],
  "cli": {
     "entitiesDir": "src/entity",

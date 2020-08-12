@@ -4,17 +4,23 @@ import "dotenv/config";
 import {ApolloServer} from 'apollo-server-express';
 import { buildSchema } from 'type-graphql';
 import { UserResolver } from './UserResolver';
+import { CoursesResolver } from './CoursesResolver';
 import { createConnection } from "typeorm";
 import cookieParser from 'cookie-parser';
 import { verify } from 'jsonwebtoken';
 import { User } from "./entity/User";
 import { createAccessToken, createRefreshToken } from "./auth";
 import { sendRefreshToken } from "./sendRefreshToken";
+import cors from 'cors';
 
 
 
 (async () => {
   const app = express();
+  app.use(cors({
+    credentials: true,
+    origin: 'http://localhost:3000'
+  }));
   app.use(cookieParser());
   app.get('/', (_, res) => {
     res.send('Hello world!');
@@ -49,12 +55,12 @@ import { sendRefreshToken } from "./sendRefreshToken";
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [UserResolver]
+      resolvers: [UserResolver, CoursesResolver]
     }),
     context: ({ req, res }) =>({ res, req }) 
   });
 
-  apolloServer.applyMiddleware({app});
+  apolloServer.applyMiddleware({app, cors:false});
 
   app.listen(4000, () => {
     console.log('express app running on port 4000');

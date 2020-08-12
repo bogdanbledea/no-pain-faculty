@@ -1,5 +1,6 @@
 import axios from "axios";
 import jwt_decode from 'jwt-decode';
+import React from 'react';
 
 const API_URL = "http://localhost:4000/api/auth/";
 
@@ -32,17 +33,19 @@ class AuthService {
   }
 
   getCurrentUser() {
-    console.log(localStorage.getItem('user'));
-    if(localStorage.getItem('user') !== null){
-      const decoded_token:any = jwt_decode(JSON.parse(localStorage.getItem('user') || '{}').accessToken);
-      console.log(decoded_token)
-      if (decoded_token.exp < Date.now() / 1000) {
-        localStorage.clear();
-      } else {
-        return JSON.parse(localStorage.getItem('user') || '{}');
+    const token = localStorage.getItem('user');
+
+    console.log(token);
+    if(token){
+      try{
+        const decoded:any = jwt_decode(token!);
+        console.log(decoded);
+        return {
+          currentUser: decoded.userId
+        }
+      } catch(err){
+        console.log(err.message);
       }
-    } else {
-      return undefined;
     }
   }
 }

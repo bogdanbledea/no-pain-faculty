@@ -6,31 +6,59 @@ import { useForm } from 'react-hook-form';
 import { Redirect, Link } from 'react-router-dom';
 import authService from '../../services/auth.service';
 import { useHistory } from 'react-router-dom';
+import { useLoginMutation } from 'generated/graphql';
+import { Context } from 'App';
 
 const Login = () => {
   const [currentUser] = React.useState(authService.getCurrentUser());
+  console.log(currentUser);
   const {handleSubmit, register } = useForm();
-  const history = useHistory()
+  const history = useHistory();
+  const [login] = useLoginMutation();
 
-  const onSubmit = (data:any) => {
-    const { username, password } = data;
-    authService.login(username, password).then(
-      (data) => {
-        history.push('/profile');
-      })
-  }
+
 
   return(
-    <Container>
-      {currentUser && currentUser.accessToken && <Redirect to="/profile" />}
-      <h3>Login</h3>
-      <form onSubmit={handleSubmit(onSubmit)}>
-        <TextInput inputRef={register} type="text" name="username" placeholder="username..." />
-        <TextInput inputRef={register} type="password" name="password" placeholder="password..." />
-        <p>Don't have an account yet? <Link to="/register">Register here</Link></p>
-        <Button type="submit" buttonType="info">Login</Button>
-      </form>
-    </Container>
+    <Context.Consumer>
+      {value => {
+          const onSubmit = async (data:any) => {
+            const { email, pass } = data;
+            try{
+              const response = await login({
+                variables:{
+                  email,
+                  pass: pass
+                }
+              });
+              if(response && response.data){
+                try{
+                  localStorage.setItem('user', response.data.login.accessToken);
+                  value.setState({isLoggedIn: true});
+                  history.push('/');
+                } catch(err){
+                  console.log(err);
+                }
+              }
+              console.log(response);
+            } catch(err){
+              console.log(err);
+            }
+          }
+        console.log(value);
+        return(
+        <Container>
+          {currentUser && <Redirect to="/profile" />}
+          <h3>Login</h3>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <TextInput inputRef={register({required: 'Email is required'})} type="text" name="email" placeholder="Email..." />
+            <TextInput inputRef={register({required: 'Password is required'})} type="password" name="pass" placeholder="password..." />
+            <p>Don't have an account yet? <Link to="/register">Register here</Link></p>
+            <Button type="submit" buttonType="info">Login</Button>
+          </form>
+        </Container>
+      )}}
+    </Context.Consumer>
+    
   );
 }
 
