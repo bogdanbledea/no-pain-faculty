@@ -13,7 +13,7 @@ module.exports = {
   },
   "logging": false,
   "entities": [
-    "src/entity/**/*"
+    "entity/**/*"
  ],
  "migrations": [
     "src/migration/**/*"

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: registry.gitlab.com/bogdanbledea/no-pain-faculty:backend-v9
+        ports:
+        - containerPort: 4000
+      imagePullSecrets:
+        - name: regcred
