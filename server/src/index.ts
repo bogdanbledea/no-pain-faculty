@@ -13,13 +13,14 @@ import { createAccessToken, createRefreshToken } from "./auth";
 import { sendRefreshToken } from "./sendRefreshToken";
 import cors from 'cors';
 
-
+const ALLOW_ORIGIN = process.env.ORIGIN_URL || 'http://localhost:3000';
+console.log(ALLOW_ORIGIN);
 
 (async () => {
   const app = express();
   app.use(cors({
     credentials: true,
-    origin: 'http://173.193.79.140:32760'
+    origin: ALLOW_ORIGIN
   }));
   app.use(cookieParser());
   app.get('/', (_, res) => {

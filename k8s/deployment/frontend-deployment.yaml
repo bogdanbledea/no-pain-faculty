@@ -16,7 +16,12 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: registry.gitlab.com/bogdanbledea/no-pain-faculty:v14
+        image: registry.gitlab.com/bogdanbledea/no-pain-faculty:v15
+        env:
+          - name: "REACT_APP_TITLE"
+            value: "No pain faculty | Development"
+          - name: "REACT_APP_GRAPHQL_URL"
+            value: "http://173.193.79.140:31234/graphql"
         ports:
         - containerPort: 8080
       imagePullSecrets:

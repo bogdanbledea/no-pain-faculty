@@ -17,6 +17,9 @@ spec:
       containers:
       - name: backend
         image: registry.gitlab.com/bogdanbledea/no-pain-faculty:backend-v9
+        env:
+          - name: "ORIGIN_URL"
+          value: "http://173.193.79.140:32760"
         ports:
         - containerPort: 4000
       imagePullSecrets:
