@@ -6,7 +6,8 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import * as serviceWorker from './serviceWorker';
 
-const API_URL = process.env.REACT_APP_BACKEND_URL || 'http://localhost:4000/graphql';
+const API_URL =
+  process.env.REACT_APP_BACKEND_URL || 'http://localhost:4000/graphql';
 console.log(API_URL);
 
 const client = new ApolloClient({

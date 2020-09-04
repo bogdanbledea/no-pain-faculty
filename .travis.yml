@@ -2,5 +2,5 @@ language: node_js
 node_js:
   - node
 script: 
-  - cd frontend && npm install && npm run coveralls && npm run test:all
+  - npm install && npm run coveralls && npm run test:all
   
