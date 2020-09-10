@@ -3,7 +3,6 @@ import { HeaderContainer, Logo, Title, Subtitle, Menu } from './Header.styled';
 import {
   Link
 } from "react-router-dom";
-import authService from '../../../../services/auth.service';
 import { Context } from 'App';
 
 const Header = () => {

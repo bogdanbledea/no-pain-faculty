@@ -21,7 +21,7 @@ spec:
           - name: "REACT_APP_TITLE"
             value: "No pain faculty | Development"
           - name: "REACT_APP_BACKEND_URL"
-            value: "http://184.172.234.226:31234/graphql"
+            value: "http://184.172.234.226:31234"
         ports:
         - containerPort: 8080
       imagePullSecrets:
