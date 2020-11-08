@@ -1,3 +1,6 @@
+env:
+  global:
+    - COMMIT: ${TRAVIS_COMMIT::7}
 install:
   - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
   - chmod +x ./kubectl
@@ -7,7 +10,7 @@ install:
   - echo "$KUBE_CONFIG" | base64 --decode > ${HOME}/.kube/config
   - echo "$DOCKER_PASSWORD" | docker login registry.gitlab.com -u "$DOCKER_USERNAME" --password-stdin
   - npm install && npm run coveralls && npm run test:all
-  - docker build -t registry.gitlab.com/bogdanbledea/no-pain-faculty:frontend-$TRAVIS_COMMIT::7 .
+  - docker build -t registry.gitlab.com/bogdanbledea/no-pain-faculty:frontend-$COMMIT .
   - docker push registry.gitlab.com/bogdanbledea/no-pain-faculty
 script:
 - bash updateKube.sh
