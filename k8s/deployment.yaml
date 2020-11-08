@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: registry.gitlab.com/bogdanbledea/no-pain-faculty:v18
+        image: registry.gitlab.com/bogdanbledea/no-pain-faculty:frontend-VERSION
         env:
           - name: "REACT_APP_TITLE"
             value: "No pain faculty | Development"

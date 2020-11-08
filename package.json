@@ -37,7 +37,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:all": "set CI=true && jest --coverage",
-    "coveralls": "jest --coverage && cat ./coverage/lcov.info | coveralls",
+    "coveralls": "cat ./coverage/lcov.info | coveralls",
     "checksForCommit": "lint-staged && set CI=true && jest --coverage",
     "eject": "react-scripts eject",
     "gen": "graphql-codegen --config codegen.yml"

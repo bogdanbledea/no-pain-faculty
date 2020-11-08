@@ -1,6 +1,18 @@
-language: node_js
-node_js:
-  - node
-script: 
+install:
+  - curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+  - chmod +x ./kubectl
+  - sudo mv ./kubectl /usr/local/bin/kubectl
+  - mkdir ${HOME}/.kube
+  - echo "$KUBE_CERTIFICATE_AUTHORITY" | base64 --decode > ${HOME}/.kube/ca-aaa00-nopainfaculty.pem
+  - echo "$KUBE_CONFIG" | base64 --decode > ${HOME}/.kube/config
+  - echo "$DOCKER_PASSWORD" | docker login registry.gitlab.com -u "$DOCKER_USERNAME" --password-stdin
   - npm install && npm run coveralls && npm run test:all
-  
+  - docker build -t registry.gitlab.com/bogdanbledea/no-pain-faculty:frontend-$TRAVIS_COMMIT::7 .
+  - docker push registry.gitlab.com/bogdanbledea/no-pain-faculty
+script:
+- bash updateKube.sh
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: master
