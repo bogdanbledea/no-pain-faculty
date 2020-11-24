@@ -10,3 +10,4 @@ App that helps faculties to deliver courses, grades and news to the students, pa
 * The IP address of the cluster will be changed every month because of the IBM Cloud deletion policy for free clusters after 30 days.
 * The app is available at [http://169.57.78.50:32760](http://169.57.78.50:32760)
 * Docker images used for deployment are stored in a GitLab container registry.
+* Automatic deployment is implemented with Travis.
