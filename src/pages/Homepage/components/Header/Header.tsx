@@ -14,7 +14,7 @@ const Header = () => {
           <HeaderContainer>
           <Logo>
             <Title>No pain faculty</Title>
-            <Subtitle>Deliver everything, painless, in one single place. Test</Subtitle>
+            <Subtitle>Deliver everything, painless, in one single place. Test frontend.</Subtitle>
           </Logo>
           <Menu>
             <ul>
