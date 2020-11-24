@@ -11,12 +11,9 @@ import { Context } from 'App';
 
 const Login = () => {
   const [currentUser] = React.useState(authService.getCurrentUser());
-  console.log(currentUser);
   const {handleSubmit, register } = useForm();
   const history = useHistory();
   const [login] = useLoginMutation();
-
-
 
   return(
     <Context.Consumer>
@@ -36,15 +33,14 @@ const Login = () => {
                   value.setState({isLoggedIn: true});
                   history.push('/');
                 } catch(err){
-                  console.log(err);
+                  console.error(err);
                 }
               }
-              console.log(response);
             } catch(err){
-              console.log(err);
+              console.error(err);
             }
           }
-        console.log(value);
+
         return(
         <Container>
           {currentUser && <Redirect to="/profile" />}

@@ -26,9 +26,7 @@ function App() {
   let decodedToken: any;
   try {
     decodedToken = jwtDecode(user!);
-    console.log(decodedToken);
   } catch (err) {
-    console.log({ error: 'Invalid token provided! Clearing the token!' });
     localStorage.removeItem('user');
   }
 

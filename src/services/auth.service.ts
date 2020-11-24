@@ -35,16 +35,14 @@ class AuthService {
   getCurrentUser() {
     const token = localStorage.getItem('user');
 
-    console.log(token);
     if(token){
       try{
         const decoded:any = jwt_decode(token!);
-        console.log(decoded);
         return {
           currentUser: decoded.userId
         }
       } catch(err){
-        console.log(err.message);
+        console.error(err.message);
       }
     }
   }

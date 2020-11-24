@@ -13,7 +13,6 @@ import { useRegisterMutation } from 'generated/graphql';
 const Register = () => {
   const [currentUser] = React.useState(authService.getCurrentUser());
   const {handleSubmit, register, errors, watch } = useForm();
-   console.log(errors);
   const history = useHistory()
   const [registerFn] = useRegisterMutation();
 
@@ -25,8 +24,6 @@ const Register = () => {
         password:pass
       }
     });
-
-    console.log(response);
   }
 
   return(
